@@ -11,8 +11,6 @@ provider:
     name: deployments-qa
   logRetentionInDays: 90
   versionFunctions: false
-  logs:
-    restApi: true
 
 functions:
   test:
