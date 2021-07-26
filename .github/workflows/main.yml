@@ -1,7 +1,10 @@
+name: Deploy
+
 on:
   push:
     branches:
-      - main
+      - master
+
 jobs:
   deploy_lambda:
     runs-on: ubuntu-latest
@@ -13,4 +16,5 @@ jobs:
       - name: npm install
         env:
           CI: true
-        run: npm ci
+        run: |
+          npm ci
