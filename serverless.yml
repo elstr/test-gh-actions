@@ -1,0 +1,29 @@
+service: test-gh-action
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  profile: palabra
+  timeout: 30 # API Gateway is limited to 30 seconds
+  region: ${opt:region, 'us-east-1'}
+  stage: "qa"
+  deploymentBucket:
+    name: deployments-qa
+  logRetentionInDays: 90
+  versionFunctions: false
+  logs:
+    restApi: true
+  segment-event-tracker:
+    handler: test.handler
+    events:
+      - http:
+          path: /test
+          method: post
+
+package:
+  excludeDevDependencies: true
+  exclude:
+    - .env.*
+    - git_key
+    - node_modules/aws-sdk/**
