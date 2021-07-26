@@ -27,4 +27,4 @@ jobs:
           npm ci
       - name: deploy
         run: |
-          npx serverless deploy --aws-profile #COMPLETE-PROFILE# --stage #COMPLETE-STAGE# --region us-east-2
+          npx serverless deploy --aws-profile #COMPLETE-PROFILE# --stage qa --region us-east-1
